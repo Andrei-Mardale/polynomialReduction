@@ -1,0 +1,16 @@
+MARDALE ANDREI-IULIAN 321CB
+
+Graful citit l-am reprezentat intern ca o matrice de char pe care o accesez pe biti. Am facut aceasta alegere deoarece asa mi se pare cel mai usor sa verific daca am o muchie intre nodurile i si j in O(1) (defapt verificarea facuta in program este cea inversa - ma intereseaza unde nu am muchii intre noduri). O implementare cu liste ar fi presupus verificarea in O(|V|).
+
+Am folosit reducrea prezentata aici: http://www.csie.ntu.edu.tw/~lyuu/complexity/2011/20111018.pdf preluand 4 din cele 5 clauze.
+Am exclus clauza 3 deoarece clauzele 1, 2, 4 acopera si scopul clauzei 3. Presupunand ca am plasa variabilele intr-o matrice (i - pozitia in path, iar j numarul nodului), iar clauzele 1,2, 4 sunt satisfiabile in CNF, atunci se vor alege din aceasta matrice variabile care nu pot avea linie/coloana comuna pentru a obtine o interpretare. Cum matricea de variabile rezultata la 3 esta transpusa celei de la 1, este redundant sa folosesc si aceste clauze.
+
+Complexitatea reducerii este O(|V|^3), mai exact O(2*|V|^3 + 2*|V|^2).
+
+Caracterele expresiei booleene le pun intr-un "String" marindu-i dimensiunea cand ma apropii de sfarsitul acestuia.
+Complexitatea adaugarii unui subsir la string este O(lungimea(subsirului)), totusi lungimea subsirului pe care il adaug in instructiunile din reducere este limitata (maxim 28 - presupunand ca numerele ar avea 10 cifre - valoarea maxima ce poate stocata pe un tip de date int). Avand in vedere acest lucru, cred ca este acceptabil sa consider ca adaugarea caracterelor in String se face in O(1) (pentru scopul de fata).
+
+Alocarea grafului se face in O(|V|).
+
+In final complexitatea programului este data de complexitatea reducerii care este O(|V|^3).
+
